@@ -1,7 +1,7 @@
 import Separator from "../../components/separator";
 import Image from "next/image";
 
-const menuItems = [
+const menu = [
   {
     imgSrc: "/menu/coffee-1.png",
     name: "Espresso",
@@ -73,18 +73,18 @@ export default function Menu() {
           <Separator bg="accent" />
         </div>
         <p className="max-w-[300px] md:max-w-[450px] mx-auto">
-          "Discover our handpicked selection of coffee, crafted to perfection
+          &quot;Discover our handpicked selection of coffee, crafted to perfection
           for every taste. Indulge in rich flavors and cozy moments with every
-          cup."
+          cup.&quot;
         </p>
-      <div className="my-4 mx-4 lg:mx-40 grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-x-4 md:pl-10 md:gap-y-4 lg:gap-y-8">
-        {menuItems.map((menuItem, index) => {
+      <div className="my-4 mx-4 lg:mx-20 grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-x-4 md:pl-10 lg:pl-0 md:gap-y-4 lg:gap-y-8">
+        {menu.map((item, index) => {
           return (
-            <main>
+            <main key={index}>
               <div className="flex gap-x-3">
                 <div className="h-10 w-10 md:h-16 md:w-16 relative">
                   <Image
-                    src={menuItem.imgSrc}
+                    src={item.imgSrc}
                     fill
                     alt="coffee"
                     priority
@@ -95,14 +95,14 @@ export default function Menu() {
                 <div className="flex flex-col flex-1 gap-2">
                   <div className="flex justify-between gap-4 items-baseline">
                     <p className="uppercase  font-primary font-semibold text-primary text-[22px]">
-                      {menuItem.name}
+                      {item.name}
                     </p>
                     <div className="flex-1 border-b border-dashed border-primary"></div>
                     <p className="leading-relaxed font-semibold font-primary text-[30px] text-primary">
-                      {menuItem.price}
+                      {item.price}
                     </p>
                   </div>
-                  <p className="text-xs lg:text-sm">{menuItem.description}</p>
+                  <p className="text-xs lg:text-sm">{item.description}</p>
                 </div>
               </div>
             </main>
@@ -116,4 +116,6 @@ export default function Menu() {
     </section>
   );
 }
+
+
 

@@ -1,4 +1,3 @@
-// import { Box } from '@shadcn/ui';
 import Badge from "../../components/badge";
 import Image from "next/image";
 import Header from "@/components/header";
@@ -30,7 +29,7 @@ export default function About() {
 
                 {data.map((item, index) => {
                     return (
-                               <div className="flex gap-28 relative px-16">
+                               <div key={index} className="flex gap-28 relative px-16">
                                 <div className="flex-1 flex flex-col justify-center items-center">
                                     <Badge />
                                     <h2 className="h2 text-white text-4xl">{item.title}</h2>
