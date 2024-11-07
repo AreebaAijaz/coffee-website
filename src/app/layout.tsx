@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Cormorant_Upright , Open_Sans } from "next/font/google";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const cormorant_uprigt = Cormorant_Upright({ subsets: ["latin"] ,
+  weight : ["300" , "400" , "500" , "600" , "700"],
+  variable : "---font-cormorant_upright"
+});
+
+const open_sans = Open_Sans({ subsets: ["latin"] ,
+  weight : ["300" , "400" , "500" , "600" , "700" , "800"],
+  variable : "---font-open_sans"
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${cormorant_uprigt.variable} ${open_sans.variable}`}>
+      <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
